@@ -8,7 +8,7 @@ const Order = () => {
                 heading="ORDER ONLINE"
             >
             </SectionStyle>
-            <p>Hi</p>
+           
         </div>
     );
 };

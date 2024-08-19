@@ -4,7 +4,7 @@ const MenuCard = ({ food }) => {
     const { image, recipe, name, price } = food;
     return (
         <div>
-            <div className="flex gap-6 items-center" >
+            <div className="flex gap-6 items-center mt-2 md:mt-0" >
                 <img
                     style={{
                         width: '100px',

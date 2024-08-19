@@ -1,21 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SectionStyle from "../../../Components/SectionStyle/SectionStyle";
 import MenuCard from "./MenuCard";
+import useMenu from "../../../hook/useMenu/useMenu";
+import ViewMoreBtn from "../../../Components/ViewMoreBtn/ViewMoreBtn";
 
 const Menu = () => {
 
-    const [item, setItem] = useState([])
+    const [items] = useMenu() //used custom hook to load menu data
     const [showAll, setShowAll] = useState(false)
-    // console.log(item)
-    const foods = showAll ? item : item.slice(0, 6);
-    // console.log(foods)
 
-
-    useEffect(() => {
-        fetch("menu.json")
-            .then(res => res.json())
-            .then(data => setItem(data))
-    }, [])
+    const foods = showAll ? items : items.slice(0, 6);
     return (
         <section className="mb-10">
             <SectionStyle
@@ -23,42 +17,15 @@ const Menu = () => {
                 subHeading={"Check it out"}
             >
             </SectionStyle>
-            <p>length :{foods.length}</p>
 
-            <div className="grid grid-cols-2 gap-8">
+            <div className="md:grid grid-cols-2 gap-8  pt-10 border border-gray-200 rounded-md px-5 py-5">
                 {
                     foods.map(food =>
                         <MenuCard key={food._id} food={food}></MenuCard>
                     )
                 }
             </div>
-            <div className="flex justify-center mt-8">
-                {showAll ?
-                    <button
-                        onClick={() => { setShowAll(false) }}
-                        className="px-8 py-4 hover:bg-slate-400 "
-                        style={{
-                            borderRadius: "8px",
-                            borderBottom: "3px solid #1F2937",
-                            fontSize: '20px',
-                            color: ' #1F2937',
-                            fontWeight: '500'
-                        }}
-                    >Close All</button>
-                    :
-                    <button
-                        onClick={() => { setShowAll(true) }}
-                        className="px-8 py-4 hover:bg-slate-400 "
-                        style={{
-                            borderRadius: "8px",
-                            borderBottom: "3px solid #1F2937",
-                            fontSize: '20px',
-                            color: ' #1F2937',
-                            fontWeight: '500'
-                        }}>View Full  Menu</button>
-
-                }
-            </div>
+            <ViewMoreBtn showAll={showAll} setShowAll={setShowAll}></ViewMoreBtn>
         </section>
     );
 };

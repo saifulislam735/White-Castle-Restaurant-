@@ -7,7 +7,7 @@ import parallaxBackgroudImage from '../../../assets/assets/home/featured.jpg';
 const ParallaxMenu = () => {
     return (
         <div
-            className="bg-fixed bg-center bg-cover h-[500px]  w-full "
+            className="bg-fixed bg-center bg-cover h-[350px] md:h-[500px]  w-full pt-2"
             style={{
                 backgroundImage: `url(${parallaxBackgroudImage})`,
                 opacity: 10
@@ -19,13 +19,14 @@ const ParallaxMenu = () => {
                 heading={"FROM OUR MENU"}
             >
             </SectionStyle>
-            <div className="grid grid-cols-2 px-[250px] gap-10">
+            <div className="grid grid-cols-2 px-8 md:px-[250px] gap-3">
                 <img src={parallaxBackgroudImage} alt="" />
                 <div className="text-white">
-                    <p className="text-xl">March 20, 2023</p>
-                    <h2 className="text-2xl">WHERE CAN I GET SOME?</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error voluptate facere, deserunt dolores maiores quod nobis quas quasi. Eaque repellat recusandae ad laudantium tempore consequatur consequuntur omnis ullam maxime tenetur.</p>
+                    <p className="text-sm md:text-xl">March 20, 2023</p>
+                    <h2 className=" md:text-2xl">WHERE CAN I GET SOME?</h2>
+                    <p className="text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error voluptate facere, deserunt dolores maiores quod nobis quas quasi. Eaque repellat recusandae ad laudantium tempore consequatur consequuntur omnis ullam maxime tenetur.</p>
                     <Button
+                        className=""
                         buttonColor="#FFF"
                         buttonText="Read More"
                         borderColor="#FFF"

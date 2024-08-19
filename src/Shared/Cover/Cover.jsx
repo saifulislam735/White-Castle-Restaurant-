@@ -1,18 +1,33 @@
 
-const Cover = () => {
+const Cover = ({ Img, heading, description, section = false }) => {
+    const imageUrl = Img || 'https://via.placeholder.com/800x400';  // Fallback URL
+
     return (
-        <div className="hero bg-base-200 md:h-[500px]">
+        <div
+            style={{
+                backgroundImage: `url(${imageUrl})`,
+            }}
+
+            className={`hero bg-base-200 h-[250px] ${section ? 'md:h-[400px]' : 'md:h-[500px]'}`}
+        >
             <div className="hero-content text-center">
-                <div className="max-w-md">
-                    <h1 className="text-5xl font-bold">Hello there</h1>
-                    <p className="py-6">
-                        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                        quasi. In deleniti eaque aut repudiandae et a id nisi.
+                <div
+                    style={{
+                        fontFamily: 'Cinzel',
+                        backgroundColor: 'rgba(21, 21, 21, 0.60)',
+                    }}
+                    className="px-[100px] py-[25px] md:px-[250px] md:py-[70px] text-white"
+                >
+                    <h1 className="text-4xl md:text-6xl lg:text-[70px] font-bold">
+                        {heading}
+                    </h1>
+                    <p className="text-lg md:text-xl lg:text-2xl">
+                        {description}
                     </p>
-                    <button className="btn btn-primary">Get Started</button>
                 </div>
             </div>
         </div>
+
     );
 };
 

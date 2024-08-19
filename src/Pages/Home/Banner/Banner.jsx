@@ -9,9 +9,9 @@ import slider6 from '../../../assets/assets/home/06.png'
 
 const Banner = () => {
     return (
-        <Carousel className="relative">
+        <Carousel className="relative ">
             <div>
-                <img className="" src={slider1} />
+                <img src={slider1} />
             </div>
             <div>
                 <img src={slider2} />

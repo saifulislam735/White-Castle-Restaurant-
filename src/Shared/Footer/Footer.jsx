@@ -3,7 +3,7 @@ const Footer = () => {
     return (
 
         <footer className="">
-            <div className="grid grid-cols-2 p-[100px] bg-neutral text-neutral-content  ">
+            <div className="md:grid grid-cols-2 p-[100px] bg-neutral text-neutral-content">
                 <div className="text-center space-y-2">
                     <h4 className="text-3xl">CONTACT US</h4>
                     <p className="text-center">123 ABS Street, Uni 21, Bangladesh</p>
@@ -11,7 +11,7 @@ const Footer = () => {
                     <p>Mon - Fri: 08:00 - 22:00</p>
                     <p>Sat - Sun: 10:00 - 23:00</p>
                 </div>
-                <div className="text-center space-y-2">
+                <div className="text-center space-y-2 mt-12 md:mt-0">
                     <h4 className="uppercase  text-3xl">Follow US</h4>
                     <p className="text-xl">Join us on social media</p>
                     <div className="flex gap-3 justify-center">
