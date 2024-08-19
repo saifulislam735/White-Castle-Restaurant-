@@ -19,12 +19,12 @@ const ParallaxMenu = () => {
                 heading={"FROM OUR MENU"}
             >
             </SectionStyle>
-            <div className="grid grid-cols-2 px-8 md:px-[250px] gap-3">
+            <div className="grid grid-cols-2 px-8 md:px-[250px] gap-3 md:gap-10">
                 <img src={parallaxBackgroudImage} alt="" />
                 <div className="text-white">
                     <p className="text-sm md:text-xl">March 20, 2023</p>
                     <h2 className=" md:text-2xl">WHERE CAN I GET SOME?</h2>
-                    <p className="text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error voluptate facere, deserunt dolores maiores quod nobis quas quasi. Eaque repellat recusandae ad laudantium tempore consequatur consequuntur omnis ullam maxime tenetur.</p>
+                    <p className="text-xs md:text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error voluptate facere, deserunt dolores maiores quod nobis quas quasi. Eaque repellat recusandae ad laudantium tempore consequatur consequuntur omnis ullam maxime tenetur.</p>
                     <Button
                         className=""
                         buttonColor="#FFF"

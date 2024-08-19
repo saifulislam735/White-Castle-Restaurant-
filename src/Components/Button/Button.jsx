@@ -8,7 +8,7 @@ const Button = ({ buttonText, buttonColor, borderColor, backgroundColor = "#fff"
     return (
         <div>
             <button
-                className="px-3 md:px-6 py-2 md:py-4 rounded-md border-b-4 transition-colors duration-300 text-sm mt-2"
+                className="px-3 md:px-6 py-2 md:py-4 rounded-md border-b-4 transition-colors duration-300 text-sm md:text-xl mt-2"
                 style={{
                     color: buttonColor,
                     borderColor: borderColor,
