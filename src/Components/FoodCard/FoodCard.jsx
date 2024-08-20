@@ -1,5 +1,5 @@
 
-const FoodCard = ({ Img, title, description }) => {
+const FoodCard = ({ Img, title, description, price }) => {
     return (
         <div className="card bg-base-100 w-80 md:w-96 shadow-xl mt-4 md:mt-0 mx-auto">
             <img
@@ -7,6 +7,11 @@ const FoodCard = ({ Img, title, description }) => {
                 alt="Shoes"
                 style={{ borderRadius: '15px' }}
                 className="h-[250px] md:h-[250px] object-cover p-2" />
+            {price &&
+                <p
+                    className="absolute right-5 top-5  rounded-sm bg-[#111827] font-semibold text-white px-3 py-1"
+                >${price}</p>
+            }
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{title}</h2>
                 <p>{description}</p>

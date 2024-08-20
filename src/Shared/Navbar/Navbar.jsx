@@ -11,19 +11,10 @@ const Navbar = () => {
         <li><a >CONTACT US</a></li>
         <li><a>DASHBOARD</a></li>
         <li><Link to="menu">OUR MENU</Link></li>
-        <li><a>OUR SHOP</a></li>
+        <li><Link to="shop/salad">OUR SHOP</Link></li>
         <li><a>
             <AiOutlineShoppingCart className="text-2xl" />
         </a></li>
-        {/* <li>
-            <details >
-                <summary>Parent</summary>
-                <ul className="p-2 md:w-48" style={{ background: 'rgba(21, 21, 21, 0.50)' }}>
-                    <li><a>Submenu 1</a></li>
-                    <li><a>Submenu 2</a></li>
-                </ul>
-            </details>
-        </li> */}
     </>
     return (
         <div style={{ background: 'rgba(21, 21, 21, 0.50)' }} className="navbar  text-white  fixed z-10 max-w-screen-xl ">
@@ -50,7 +41,7 @@ const Navbar = () => {
                         {navOptions}
                     </ul>
                 </div>
-                <Link to={'/'} className="btn btn-ghost text-[20px] ">WHITE CASTLE <br /> RESTURANT</Link>
+                <Link to={'/'} className="btn btn-ghost text-sm md:text-[20px] ">WHITE CASTLE <br /> RESTURANT</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 ">

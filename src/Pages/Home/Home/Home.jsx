@@ -1,6 +1,4 @@
-// import React from 'react';
 
-import { Helmet } from "react-helmet-async";
 import CallUs from "../../../Components/CallUs/CallUs";
 import Banner from "../Banner/Banner";
 import BistroBoss from "../BistroBoss/BistroBoss";
@@ -9,13 +7,12 @@ import ParallaxMenu from "../ParallaxMenu/ParallaxMenu";
 import Recommandation from "../Recommandation/Recommandation";
 import SwiperOrder from "../SwiperOrder/SwiperOrder";
 import Testimonial from "../Testimonial/Testimonial";
+import HelmetTitle from "../../../Components/HelmetTitle/HelmetTitle";
 
 const Home = () => {
     return (
         <div>
-            <Helmet>
-                <title>White Castle</title>
-            </Helmet>
+            <HelmetTitle title={""}></HelmetTitle>
             <Banner></Banner>
             <SwiperOrder></SwiperOrder>
             <BistroBoss></BistroBoss>
