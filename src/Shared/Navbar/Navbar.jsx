@@ -1,9 +1,28 @@
 // import React from 'react';
 
+import { useContext } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+    const { user, logout } = useContext(AuthContext)
+    const profileImage = user?.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+    const handleLogOut = () => {
+        logout().then(() => {
+            toast.success('logout successfully.', {
+                position: "bottom-center"
+            })
+
+        }).catch((error) => {
+            // An error happened.
+            toast.error({ error }, {
+                position: "bottom-center"
+            })
+
+        });
+    }
     const navOptions = <>
         <li>
             <Link to={'/'}>HOME</Link>
@@ -48,8 +67,31 @@ const Navbar = () => {
                     {navOptions}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn">Button</a>
+            <div className="navbar-end me-5 space-x-2">
+                {user ?
+                    ''
+                    :
+                    <Link to={'/login'}> <button className="btn btn-outline text-white ">Login</button></Link>
+                }
+                <Link to={'/signup'}> <button className="btn btn-outline text-white ">Sign Up</button></Link>
+                {user &&
+                    <div className="flex gap-2">
+                        <Link>
+                            <button
+                                onClick={() => handleLogOut()}
+                                className="btn btn-outline text-white "
+                            >Sign Out</button>
+                        </Link>
+
+                        <div className="avatar w-12">
+                            <div className=" ring-offset-base-100 rounded-full object-cover ">
+                                <Link to={'/profile'}>
+                                    <img src={profileImage} />
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     );

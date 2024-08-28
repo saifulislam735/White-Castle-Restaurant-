@@ -11,10 +11,10 @@ import HelmetTitle from "../../../Components/HelmetTitle/HelmetTitle";
 
 const Shop = () => {
     const { category } = useParams()
-    console.log(category)
+    // console.log(category)
     const foodCategories = ["salad", "pizza", "soups", "desserts", "drinks"]
     const indexOfSelectedCategory = foodCategories.indexOf(category)
-    console.log(indexOfSelectedCategory)
+    // console.log(indexOfSelectedCategory)
     const [tabIndex, setTabIndex] = useState(indexOfSelectedCategory);
 
     const [menu] = useMenu()
@@ -23,6 +23,10 @@ const Shop = () => {
     const soupItems = menu?.filter(item => item.category === "soup")
     const dessertItems = menu?.filter(item => item.category === "dessert")
 
+    // const data = useLoaderData()
+    // console.log(data)
+
+    // console.log(tabIndex)
     // console.log(tabIndex)
     return (
         <div>

@@ -1,15 +1,19 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
 import Footer from "../Shared/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop/ScrollToTop";
+import { Toaster } from "react-hot-toast";
 
 const Main = () => {
+    const location = useLocation()
+    const noHeaderFotter = location.pathname.includes("/login") || location.pathname.includes("/signup")
     return (
-        <div   >
+        <div>
             <ScrollToTop></ScrollToTop>
-            <Navbar></Navbar>
+            {noHeaderFotter || <Navbar></Navbar>}
             <Outlet />
-            <Footer></Footer>
+            {noHeaderFotter || <Footer></Footer>}
+            <Toaster />
         </div>
     );
 };

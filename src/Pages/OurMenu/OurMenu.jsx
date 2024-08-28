@@ -9,6 +9,8 @@ import SectionStyle from "../../Components/SectionStyle/SectionStyle";
 import useMenu from '../../hook/useMenu/useMenu'
 import MenuCategory from './MenuCategory'
 import HelmetTitle from '../../Components/HelmetTitle/HelmetTitle'
+// import { useLoaderData } from 'react-router-dom'
+// import { useEffect } from 'react'
 
 const OurMenu = () => {
     const [menu] = useMenu()
@@ -17,6 +19,12 @@ const OurMenu = () => {
     const pizzaItems = menu?.filter(item => item.category === "pizza")
     const dessertItems = menu?.filter(item => item.category === "dessert")
     // console.log('pizza', pizzaItems,'dessert', dessertItems)
+
+    // useEffect(() => {
+    //     fetch("https://white-castle-restaurant-api.vercel.app/menu")
+    //         .then(res => res.json())
+    //         .then(data => console.log(data))
+    // }, [])
     return (
         <div>
             <HelmetTitle title={"Menu"}></HelmetTitle>
