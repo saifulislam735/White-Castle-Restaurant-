@@ -9,6 +9,7 @@ import NotFoundPage from "../Pages/NotFoundPage/NotFoundPage";
 import Login from "../Pages/auth/Login/Login";
 import SignUp from "../Pages/auth/SignUp/SignUp";
 import Profile from "../Pages/auth/Profile/Profile";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
     {
@@ -26,7 +27,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'shop/:category',
-                element: <Shop></Shop>,
+                element: <PrivateRoutes><Shop></Shop></PrivateRoutes>,
             },
             {
                 path: 'login',

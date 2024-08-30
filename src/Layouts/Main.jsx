@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 const Main = () => {
     const location = useLocation()
     const noHeaderFotter = location.pathname.includes("/login") || location.pathname.includes("/signup")
+
     return (
         <div>
             <ScrollToTop></ScrollToTop>

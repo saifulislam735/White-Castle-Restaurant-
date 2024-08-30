@@ -1,5 +1,5 @@
 // import React from 'react';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import loginPageImage from '../../../assets/assets/others/authentication2.png'
 import Gobackbtn from '../../../Components/Gobackbtn/Gobackbtn';
 import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
@@ -9,7 +9,7 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const SignUp = () => {
-    const [error, setError] = useState('')
+    // const [error, setError] = useState('')
     const { signup, googleSignIn } = useContext(AuthContext)
     // console.log(user)
     // console.log(signup)
@@ -19,7 +19,7 @@ const SignUp = () => {
         // const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        setError('')
+        // setError('')
         // const user_captcha_value = form.captcha.value;
         // console.log(form, name, email, password)
         signup(email, password)
@@ -38,7 +38,7 @@ const SignUp = () => {
             .catch((error) => {
                 const errorMessage = error.message;
                 // console.log(errorMessage)
-                setError(errorMessage)
+                // setError(errorMessage)
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",

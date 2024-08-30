@@ -29,22 +29,24 @@ const Profile = () => {
             </div>
         );
     }
+
+    const profilePic = user?.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
     return (
         <div className="pt-20 ">
             <div
                 className="w-full h-[140px] rounded-lg relative "
                 style={{ backgroundImage: `url(${profileBackgroundImg})` }}>
-                {user && user.photoURL && (
+                {user &&
                     <div className="relative">
                         {/* Use absolute positioning to move half of the image outside */}
                         <img
-                            className=" rounded-full  border-4 absolute transform translate-y-20 left-1/2 -translate-x-1/2"
-                            src={user.photoURL}
+                            className=" rounded-full  border-4 absolute transform translate-y-20 left-1/2 -translate-x-1/2 w-[100px]"
+                            src={profilePic}
                             alt="User profile"
                         />
 
                     </div>
-                )}
+                }
             </div>
             <div className="mt-10 text-center">
                 <p className="text-xl font-semibold">{user?.displayName}</p>

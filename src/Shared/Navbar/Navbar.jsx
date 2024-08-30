@@ -35,6 +35,9 @@ const Navbar = () => {
             <AiOutlineShoppingCart className="text-2xl" />
         </a></li>
     </>
+
+
+
     return (
         <div style={{ background: 'rgba(21, 21, 21, 0.50)' }} className="navbar  text-white  fixed z-10 max-w-screen-xl ">
             <div className="navbar-start">

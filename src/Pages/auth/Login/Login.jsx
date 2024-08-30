@@ -5,14 +5,16 @@ import Gobackbtn from '../../../Components/Gobackbtn/Gobackbtn';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
     const [isDisabled, setIsDisabled] = useState(true)
     const captachRef = useRef(null);
-
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/";
     const { login, user, googleSignIn } = useContext(AuthContext)
     useEffect(() => {
         loadCaptchaEnginge(6);
@@ -57,11 +59,13 @@ const Login = () => {
         login(email, password)
             .then((result) => {
                 console.log(result)
+                form.reset()
                 Swal.fire({
                     title: "Good job!",
                     text: "Login Successful!",
                     icon: "success"
                 });
+                navigate(from, { replace: true })
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -121,7 +125,6 @@ const Login = () => {
                                 <LoadCanvasTemplate reloadText=" " />
                             </div>
                             <button
-                                type='button'
                                 onClick={() => handleCaptchaReload()}
                                 className='text-[#5D5FEF] mt-2 font-semibold'>
                                 Reload Captcha
@@ -134,8 +137,8 @@ const Login = () => {
                     </div>
 
                     <button
+                        type="button"
                         onClick={() => { handleCaptchaValidation() }}
-                        type='submit'
                         style={{ background: '#5D5FEF', borderRadius: '8px' }}
                         className='btn w-full text-white font-semibold'>Validate</button>
 
