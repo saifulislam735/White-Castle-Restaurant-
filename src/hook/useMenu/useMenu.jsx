@@ -5,7 +5,7 @@ const useMenu = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch("http://localhost:5000/menu")
+        fetch("https://white-castle-restaurant-api.onrender.com/menu")
             .then(res => res.json())
             .then(data => {
                 setItem(data);

@@ -14,7 +14,6 @@ const Navbar = () => {
             toast.success('logout successfully.', {
                 position: "bottom-center"
             })
-
         }).catch((error) => {
             // An error happened.
             toast.error({ error }, {
@@ -32,7 +31,9 @@ const Navbar = () => {
         <li><Link to="menu">OUR MENU</Link></li>
         <li><Link to="shop/salad">OUR SHOP</Link></li>
         <li><a>
-            <AiOutlineShoppingCart className="text-2xl" />
+            <AiOutlineShoppingCart className="text-2xl relative" />
+            <p style={{}}
+                className="absolute md:top-[-5px] left-[40px] md:left-auto md:right-[-20px] bg-white text-black p-1 md:w-9 text-center rounded-md font-semibold">9+</p>
         </a></li>
     </>
 

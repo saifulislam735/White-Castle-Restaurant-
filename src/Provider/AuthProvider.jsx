@@ -5,6 +5,8 @@ import app from "../firebase/firebase.config";
 const AuthContext = createContext(null)
 export { AuthContext };
 const AuthProvider = ({ children }) => {
+    // Disable logs by overriding console functions
+    //console.log = console.info = console.warn = console.error = () => { };
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)

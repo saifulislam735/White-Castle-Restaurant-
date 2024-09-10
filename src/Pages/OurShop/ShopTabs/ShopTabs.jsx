@@ -9,7 +9,7 @@ const ShopTabs = ({ items }) => {
                     {
                         items.map(item =>
                             <FoodCard
-                                key={item._id} food={item} Img={item.image} price={item.price} title={item.name} description={item.recipe}
+                                key={item._id} item={item} food={item} Img={item.image} price={item.price} title={item.name} description={item.recipe}
                             >
                             </FoodCard>
                         )
