@@ -17,7 +17,15 @@ const Shop = () => {
     // console.log(indexOfSelectedCategory)
     const [tabIndex, setTabIndex] = useState(indexOfSelectedCategory);
 
-    const [menu] = useMenu()
+    const [menu, loading] = useMenu()
+    if (loading) {
+        return <div className=" h-screen w-full flex justify-center items-center ">
+            <div>
+                <span className="loading loading-infinity loading-lg "></span>
+                <p>Loading......</p>
+            </div>
+        </div>
+    }
     const saladItems = menu?.filter(item => item.category === "salad")
     const pizzaItems = menu?.filter(item => item.category === "pizza")
     const soupItems = menu?.filter(item => item.category === "soup")

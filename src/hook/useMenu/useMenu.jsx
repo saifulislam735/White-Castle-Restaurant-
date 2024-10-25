@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const useMenu = () => {
     const [menu, setItem] = useState([])
+    console.log(menu)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {

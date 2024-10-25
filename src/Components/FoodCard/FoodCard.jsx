@@ -1,20 +1,57 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import useCart from "../../hook/useCart/useCart";
 
 const FoodCard = ({ Img, title, description, price, item }) => {
     // console.log(item)
+    const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
+    const [, refetch] = useCart()
+    // console.log(user)
+
     const handleAddToCart = (item) => {
-        console.log('clicked', item)
-        fetch("https://white-castle-restaurant-api.onrender.com/carts", {
-            method: "POST",
-            body: JSON.stringify(item),
-            // Adding headers to the request 
-            headers: {
-                "Content-type": "application/json"
-            }
-        })
-            // Converting to JSON
-            .then(response => response.json())
-            // Displaying results to console 
-            .then(json => console.log(json));
+        if (user && user.email) {
+            const cartItem = { menuId: item._id, Img, title, description, price, email: user?.email }
+            // console.log('clicked', item)
+            fetch("https://white-castle-restaurant-api.onrender.com/carts", {
+                method: "POST",
+                body: JSON.stringify(cartItem),
+                // Adding headers to the request 
+                headers: {
+                    "Content-type": "application/json"
+                }
+            })
+                // Converting to JSON
+                .then(response => response.json())
+                // Displaying results to console 
+                .then(data => {
+                    refetch();
+                    toast.success('Successfully added one item!', data);
+                }
+                );
+        }
+        else {
+            Swal.fire({
+                title: "Login Please",
+                text: "Login and Add product",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "login"
+            }).then((result) => {
+                //to navigate if not login in and to redirect the page location agter the event hiting whrere it suppose to go
+                if (result.isConfirmed) {
+                    navigate('/login', { state: { from: location } })
+                }
+
+            });
+
+        }
     }
 
 

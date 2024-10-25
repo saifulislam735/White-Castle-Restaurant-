@@ -5,10 +5,16 @@ import useMenu from "../../../hook/useMenu/useMenu";
 import ViewMoreBtn from "../../../Components/ViewMoreBtn/ViewMoreBtn";
 
 const Menu = () => {
-
-    const [items] = useMenu() //used custom hook to load menu data
+    const [items, loading] = useMenu() //used custom hook to load menu data
     const [showAll, setShowAll] = useState(false)
-
+    if (loading) {
+        return <div className="h-[200px] flex justify-center items-center">
+            <div>
+                <span className="loading loading-infinity loading-lg"></span>
+                <p>Loading......</p>
+            </div>
+        </div>
+    }
     const foods = showAll ? items : items.slice(0, 6);
     return (
         <section className="mb-10">

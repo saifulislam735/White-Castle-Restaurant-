@@ -9,7 +9,10 @@ import NotFoundPage from "../Pages/NotFoundPage/NotFoundPage";
 import Login from "../Pages/auth/Login/Login";
 import SignUp from "../Pages/auth/SignUp/SignUp";
 import Profile from "../Pages/auth/Profile/Profile";
-import PrivateRoutes from "./PrivateRoutes";
+import Dashboard from "../Layouts/Dashboard";
+import Mycart from "../Pages/Dashboard/Mycart/Mycart";
+import UserHome from "../Pages/Dashboard/UserHome/UserHome";
+// import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
     {
@@ -27,7 +30,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'shop/:category',
-                element: <PrivateRoutes><Shop></Shop></PrivateRoutes>,
+                element: <Shop></Shop>,
             },
             {
                 path: 'login',
@@ -42,6 +45,22 @@ export const router = createBrowserRouter([
                 element: <Profile></Profile>
             }
         ]
+    },
+    {
+        path: "dashboard",
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: "mycart",
+                element: <Mycart></Mycart>
+
+            },
+            {
+                path: "userhome",
+                element: <UserHome></UserHome>
+            }
+        ]
+
     },
     {
         path: "*",

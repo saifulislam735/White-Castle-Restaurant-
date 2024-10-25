@@ -5,8 +5,11 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import useCart from "../../hook/useCart/useCart";
 
 const Navbar = () => {
+    const [cart] = useCart()//cart data loaded by custom hook
+    // console.log(cart.length)
     const { user, logout } = useContext(AuthContext)
     const profileImage = user?.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
     const handleLogOut = () => {
@@ -30,14 +33,12 @@ const Navbar = () => {
         <li><a>DASHBOARD</a></li>
         <li><Link to="menu">OUR MENU</Link></li>
         <li><Link to="shop/salad">OUR SHOP</Link></li>
-        <li><a>
+        <li><Link to={'/dashboard/mycart'}>
             <AiOutlineShoppingCart className="text-2xl relative" />
             <p style={{}}
-                className="absolute md:top-[-5px] left-[40px] md:left-auto md:right-[-20px] bg-white text-black p-1 md:w-9 text-center rounded-md font-semibold">9+</p>
-        </a></li>
+                className="absolute md:top-[-5px] left-[40px] md:left-auto md:right-[-20px] bg-white text-black p-1 md:w-9 text-center rounded-md font-semibold">{cart.length}</p>
+        </Link></li>
     </>
-
-
 
     return (
         <div style={{ background: 'rgba(21, 21, 21, 0.50)' }} className="navbar  text-white  fixed z-10 max-w-screen-xl ">
