@@ -28,7 +28,7 @@ const Mycart = () => {
                     .then(response => response.json())
                     .then(data => {
                         if (data.deletedCount > 0) {
-                            refetch();  
+                            refetch();
                             Swal.fire({
                                 text: "Item Deleted.",
                                 icon: "success"
@@ -39,7 +39,7 @@ const Mycart = () => {
                     .catch(err =>
                         Swal.fire({
                             title: "Error!",
-                            text: "Something went wrong while deleting.",
+                            text: `${err}`,
                             icon: "error"
                         })
                     ) // Do something with the error
@@ -49,10 +49,10 @@ const Mycart = () => {
     }
     return (
         <div>
-            <div className="flex  items-center text-3xl justify-evenly">
+            <div className="flex  items-center text-2xl justify-evenly">
                 <p>Items : {cart.length}</p>
                 <p>Total price: ${total}</p>
-                <button className="bg-[#D1A054] px-5 py-3 rounded-md text-white text-2xl">Pay</button>
+                <button className="bg-[#D1A054] px-5 py-3 rounded-md text-white text-xl">Pay</button>
             </div>
             <div className="overflow-x-auto">
                 <table className="table">
